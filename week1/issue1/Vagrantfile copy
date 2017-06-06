@@ -9,6 +9,7 @@ Vagrant.configure("2") do |config|
 
         m2.vm.provider :virtualbox do |vb|
             vb.customize ["modifyvm", :id, "--memory", "6144"]
+            issue4 - note 1
         end
     end
 end
