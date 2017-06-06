@@ -1,0 +1,14 @@
+Vagrant.configure("2") do |config|
+    config.vm.define "m2" do |m2|
+        m2.vm.box = "centos/7"
+        m2.vm.hostname = "vagrant-m2"
+        m2.vm.network "private_network", ip: "192.168.10.120"
+
+
+        m2.vm.synced_folder "~/Documents/vagrant_machine/", "/vagrant", type: "nfs"
+
+        m2.vm.provider :virtualbox do |vb|
+            vb.customize ["modifyvm", :id, "--memory", "6144"]
+        end
+    end
+end
